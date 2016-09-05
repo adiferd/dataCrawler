@@ -1,0 +1,29 @@
+{
+  "name": "datacrawler",
+  "version": "1.0.0",
+  "description": "data crawler for tesis",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adiferd/dataCrawler.git"
+  },
+  "keywords": [
+    "crawler"
+  ],
+  "author": "firyalff,adiferd",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adiferd/dataCrawler/issues"
+  },
+  "homepage": "https://github.com/adiferd/dataCrawler#readme",
+  "dependencies": {
+    "cli-color": "^1.1.0",
+    "express": "^4.14.0",
+    "mongoose": "^4.6.0",
+    "node-cron": "^1.1.2",
+    "oauth": "^0.9.14"
+  }
+}
