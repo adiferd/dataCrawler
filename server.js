@@ -16,39 +16,37 @@ app.use(function (req, res, next) {
 	return next();
 });
 
-var env = require('./app/config/app').environment;
-
 process.env.NODE_ENV = (env === 'production' || env === 'development')?env:'development';
 
 if (process.env.NODE_ENV == 'production') 
-	console.log(clc.red.bgWhite.underline('You are now in production mode of roomme, every transaction are considered as REAL trasaction!'));
+	console.log(clc.red.bgWhite.underline('You are now in production mode, every transaction are considered as REAL trasaction!'));
 else
 	console.log(clc.black.bgWhite.underline('have fun while in development mode!'));
 
-require('./app/config');
+require('./app/config/'+process.env.NODE_ENV);
 
-var mongoose = require('mongoose');
-
-mongoose.connect('mongodb://localhost:27017/pindle');
+require('./app/kernel/http');
+require('./app/kernel/database');
+require('./app/kernel/cron');
 
 var models = require("./app/model");
 
 //auth modules
-var passport = require('passport');
+// var passport = require('passport');
 
 require('./app/kernel/passport')(passport, app);
 
 //http
-require('./app/kernel/http')(app);
+// require('./app/kernel/http')(app);
 
 //ctrl and middleware
 var ctrl = require('./app/controller');
-var mdlwr = require('./app/middleware');
+// var mdlwr = require('./app/middleware');
 
 var router = express.Router();
 app.use(router);
 
-require('./app/kernel/interceptor')(app);
+// require('./app/kernel/interceptor')(app);
 
 //helpers
 var appRoutes = new Object;

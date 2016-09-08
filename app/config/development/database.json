@@ -1,0 +1,5 @@
+{
+	"endpoint" : "mongodb://localhost",
+	"port" : 27017,
+	"dbName" : "tesiscrawler"
+}

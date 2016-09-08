@@ -3,7 +3,7 @@ module.exports = function(app) {
 
 	var CronJob = require('cron').CronJob;
 	
-	var foursqJob = new CronJob('03 10 01 * * *', function() 
+	var foursqJob = new CronJob('* * * * * *', function() 
 	{
 		
 
@@ -14,7 +14,7 @@ module.exports = function(app) {
 	true
 	);
 
-	var fbJob = new CronJob('03 10 01 * * *', function() 
+	var fbJob = new CronJob('* * * * * *', function() 
 	{
 		
 

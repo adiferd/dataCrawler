@@ -1,1 +1,3 @@
 /node_modules
+/app/config/production/app.json
+/app/config/production/database.json

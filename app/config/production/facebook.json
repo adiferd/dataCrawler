@@ -1,0 +1,6 @@
+{
+	"client_id": "app_id",
+    "client_secret": "app_secret",
+    "grant_type": "client_credentials",
+    "redirect_uri": "http://yoururl.com/callback"
+}

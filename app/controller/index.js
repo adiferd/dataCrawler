@@ -2,7 +2,7 @@
 
 var fs      = require("fs");
 var path    = require("path");
-var model	= {};
+var ctrl	= {};
 
 //DO NOT CHANGE LINE BELOW
 
@@ -14,7 +14,7 @@ fs
 
 	if (fs.lstatSync(__dirname+'/'+file).isDirectory()) 
 	{
-		var innermodel = new Object;
+		var innerCtrl = new Object;
 
 		fs
 		.readdirSync(__dirname+'/'+file)
@@ -22,16 +22,16 @@ fs
 			return (innerfile.indexOf(".") !== 0) && (fs.lstatSync(__dirname+'/'+file+'/'+innerfile).isFile());
 		})
 		.forEach(function(innerfile) {
-			innermodel[innerfile.split(".")[0]] =  require(path.join(__dirname, file, innerfile));
+			innerCtrl[innerfile.split(".")[0]] =  require(path.join(__dirname, file, innerfile));
 		});
 
-		model[file] = innermodel;
+		ctrl[file] = innerCtrl;
 	}
 
 	return (file.indexOf(".") !== 0) && (fs.lstatSync(__dirname+'/'+file).isFile()) && (file !== "index.js");
 })
 .forEach(function(file) {
-	model[file.split(".")[0]] = require(path.join(__dirname, file));
+	ctrl[file.split(".")[0]] = require(path.join(__dirname, file));
 });
 
-module.exports = model;
+module.exports = ctrl;
